@@ -3,13 +3,23 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
-    return view('hiii');
+    return 'привееет эт главная стр!!!!';});
+
+Route::get('/check-db-config', function() {
+    return [
+        'DB_HOST' => env('DB_HOST'),
+        'DB_PORT' => env('DB_PORT'),
+        'DB_DATABASE' => env('DB_DATABASE'),
+        'DB_USERNAME' => env('DB_USERNAME'),
+        'DB_PASSWORD' => env('DB_PASSWORD'),
+    ];
 });
 // Задача 1
 Route::get('/test', function () {
-    return 'привееет!';
+    return 'привееет!!!!';
 });
 // Задача 2
 Route::get('/dir/test/', function () {
@@ -45,7 +55,7 @@ Route::get('/employee/field/{id}/{field}', [EmployeeController::class, 'showFiel
 
 Route::get('/pr5', function () {
     return view('pr5', [
-        'name' => 'Иван',
+        'name' => 'Гриша',
         'age' => 30,
         'salary' => 50000,
         'cssClass' => 'active',
@@ -54,11 +64,11 @@ Route::get('/pr5', function () {
         'value3' => 'Значение 3',
         'cssStyle' => 'color: red;',
         'text' => 'Ссылка на главную',
-        'href' => '/',
+        'href' => '/test',
         'employee' => [
             'name' => 'Петр',
             'age' => 25,
-            'salary' => 40000,
+            'salary' => 40090,
         ],
         'array' => [1, 2, 3, 4, 5],
         'city' => 'Омск',
@@ -93,9 +103,11 @@ Route::get('/pr7', function () {
         ],
     ]);
 });
+
 Route::get('/pr8', function () {
     return view('pr8');
 });
+
 Route::get('/pr9', function () {
     return view('pr9', [
         'links' => [
@@ -116,5 +128,8 @@ Route::get('/pr9', function () {
         'strings' => ['Опция 1', 'Опция 2', 'Опция 3'],
         'days' => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         'currentDay' => 5,
-    ]);
+]);
 });
+
+Route::get('/posts', [PostController::class, 'showAllPR']);
+Route::get('/posts/{id}', [PostController::class, 'showOnePR']);

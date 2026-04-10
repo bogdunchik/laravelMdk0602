@@ -5,13 +5,12 @@
 </head>
 <body>
     <p>Имя : {{ $name }}</p>
-    <p>Фамилия: {{ $surname }}</p>
     <p>{{ $salary }}</p>
-    <p class="{{ $cssClass }}">Текст с динамическим классом</p>
+    <p class="{{ $cssClass }}">Текст</p>
     <input value="{{ $value1 }}">
 <input value="{{ $value2 }}">
 <input value="{{ $value3 }}">
-<p style="{{ $cssStyle }}">Текст с красным цветом</p><a href="{{ $href }}">{{ $text }}</a>
+<p style="{{ $cssStyle }}">Текст </p><a href="{{ $href }}">{{ $text }}</a>
 <a href="{{ $href }}">{{ $text }}</a>
 <p>{{date('d.m.Y')}}</p>
 <p>{{ $employee['name'] }}</p>

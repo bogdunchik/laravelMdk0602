@@ -48,7 +48,7 @@
     </table>
 
     <h4>Задача 9.5</h4>
-    <table border="1">
+    <table border="6">
         <tr>
             <th>№</th>
             <th>Имя</th>
