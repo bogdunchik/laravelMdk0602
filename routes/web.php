@@ -4,6 +4,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FormController;
 
 Route::get('/', function () {
     return 'привееет эт главная стр!!!!';});
@@ -131,5 +132,18 @@ Route::get('/pr9', function () {
 ]);
 });
 
+Route::get('/test/form', [TestController::class, 'form']);
+Route::post('/test/result', [TestController::class, 'result']);
+
+Route::match(['get', 'post'], '/test/form', 'TestController@formPost');
+Route::post('/test/result', 'TestController@resultPost');
+
 Route::get('/posts', [PostController::class, 'showAllPR']);
 Route::get('/posts/{id}', [PostController::class, 'showOnePR']);
+
+
+Route::get('/form', [FormController::class, 'showForm']);
+Route::post('/form', [FormController::class, 'handleForm']);
+Route::get('/register', [FormController::class, 'showRegisterForm']);
+Route::post('/register', [FormController::class, 'handleRegister']);
+Route::match(['get', 'post'], '/method', [FormController::class, 'method']);
