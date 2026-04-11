@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
@@ -15,15 +16,15 @@ class TestController extends Controller
         return view('form');
     }
 
-    public function result(Request $request)
-    {
-        if ($request->has('number')) {
-            $number = (int)$request->input('number');
-            $square = $number * $number;
-            return view('result', ['square' => $square]);
-        }
-        return view('result');
+ public function result(Request $request)
+{
+    if ($request->has('number')) {
+        $number = (int)$request->input('number');
+        $square = $number * $number;
+        return view('result', ['square' => $square]);
     }
+    return view('result');
+}
         public function formPost()
     {
         return view('form_post');

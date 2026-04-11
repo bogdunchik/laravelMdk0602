@@ -1,3 +1,4 @@
+<?php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -38,6 +39,19 @@ class FormController extends Controller
         return view('result', ['sum' => $sum]);
     }
  }
-
+public function handleMethod(Request $request)
+    {
+       $path = $request->path();
+        $url = $request->url();
+        $fullUrl = $request->fullUrl();
+        $fullUrlWithQuery = $request->fullUrlWithQuery(['page' => 1]);
+        return view('TestMethod', [
+            'path' => $path,
+            'url' => $url,
+            'fullUrl' => $fullUrl,
+            'fullUrlWithQuery' => $fullUrlWithQuery
+        ]);
+    }
 
 }
+?>

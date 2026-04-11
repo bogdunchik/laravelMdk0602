@@ -1,14 +1,16 @@
 <h4><i>Отправленные</i> данные:</h4>
-<ul>
-@foreach($data['inputs'] ?? [] as $item)
-    <li>{{ $item }}</li>
-@endforeach
-</ul>
+@if(isset($data))
+    <ul>
+    @foreach($data['inputs'] ?? [] as $item)
+        <li>{{ $item }}</li>
+    @endforeach
+    </ul>
+@endif
 
-<h2>Сумма чисел<i>из method</i>: {{ $sum }}</h2>
+@if(isset($sum))
+    <h2>Сумма чисел: {{ $sum }}</h2>
+@endif
 
 @if(isset($square))
     <p>Квадрат числа: {{ $square }}</p>
 @endif
-
-<p>Сумма: {{ $sum }}</p>

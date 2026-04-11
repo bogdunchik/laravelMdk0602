@@ -112,7 +112,7 @@ Route::get('/pr8', function () {
 Route::get('/pr9', function () {
     return view('pr9', [
         'links' => [
-            ['text' => 'Ссылка 1', 'href' => '/link1'],
+            ['text' => 'test', 'href' => '/test'],
             ['text' => 'Ссылка 2', 'href' => '/link2'],
             ['text' => 'Ссылка 3', 'href' => '/link3'],
         ],
@@ -134,10 +134,6 @@ Route::get('/pr9', function () {
 
 Route::get('/test/form', [TestController::class, 'form']);
 Route::post('/test/result', [TestController::class, 'result']);
-
-Route::match(['get', 'post'], '/test/form', 'TestController@formPost');
-Route::post('/test/result', 'TestController@resultPost');
-
 Route::get('/posts', [PostController::class, 'showAllPR']);
 Route::get('/posts/{id}', [PostController::class, 'showOnePR']);
 
@@ -147,3 +143,16 @@ Route::post('/form', [FormController::class, 'handleForm']);
 Route::get('/register', [FormController::class, 'showRegisterForm']);
 Route::post('/register', [FormController::class, 'handleRegister']);
 Route::match(['get', 'post'], '/method', [FormController::class, 'method']);
+
+Route::get('/session/set', [SessionController::class, 'setSession']);
+Route::get('/session/get', [SessionController::class, 'getSession']);
+Route::get('/counter', [SessionController::class, 'counter']);
+Route::get('/firstVisitTime', [SessionController::class, 'firstVisitTime']);
+Route::get('/pushToArray', [SessionController::class, 'pushToArray']);
+Route::get('/forgetSession', [SessionController::class, 'forgetSession']);
+Route::get('/pullSession', [SessionController::class, 'pullSession']);
+Route::get('/flushSession', [SessionController::class, 'flushSession']);
+Route::get('/allSession', [SessionController::class, 'allSession']);
+Route::get('/checkSession', [SessionController::class, 'checkSession']);
+Route::get('/sessionHelperSet', [SessionController::class, 'sessionHelperSet']);
+Route::get('/sessionHelperGet', [SessionController::class, 'sessionHelperGet']);
