@@ -5,6 +5,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\Pr15Controller;
+use App\Http\Controllers\Pr16Controller;
 
 Route::get('/', function () {
     return 'привееет эт главная стр!!!!';});
@@ -156,3 +158,18 @@ Route::get('/allSession', [SessionController::class, 'allSession']);
 Route::get('/checkSession', [SessionController::class, 'checkSession']);
 Route::get('/sessionHelperSet', [SessionController::class, 'sessionHelperSet']);
 Route::get('/sessionHelperGet', [SessionController::class, 'sessionHelperGet']);
+
+Route::match(['get', 'post'], '/pr15/form', [Pr15Controller::class, 'form']);
+Route::get('/pr15/success', [Pr15Controller::class, 'yep']);
+Route::match(['get', 'post'], '/pr15/2', [Pr15Controller::class, 'pr1521']);
+Route::get('/pr15/mailOk', [Pr15Controller::class, 'mailOk']);
+
+Route::get('/pr15/nameP', [Pr15Controller::class, 'pr1531']);
+Route::get('/pr15/target', [Pr15Controller::class, 'target'])->name('namedPath');
+
+Route::get('/pr15/nameParameters', [Pr15Controller::class, 'pr1541']);
+Route::get('/pr15/{p1}/{p2}', [Pr15Controller::class, 'withPars'])->name('pathPars');
+Route::get('/pr16/set', [Pr16Controller::class, 'pr1611']);
+Route::get('/pr16/show', [Pr16Controller::class, 'pr1612']);
+Route::match(['get', 'post'], '/pr16/form', [Pr16Controller::class, 'pr1621']);
+
