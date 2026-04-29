@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\Pr15Controller;
 use App\Http\Controllers\Pr16Controller;
+use App\Http\Controllers\Pr188Controller;
 
 Route::get('/', function () {
     return 'привееет эт главная стр!!!!';});
@@ -173,3 +174,6 @@ Route::get('/pr16/set', [Pr16Controller::class, 'pr1611']);
 Route::get('/pr16/show', [Pr16Controller::class, 'pr1612']);
 Route::match(['get', 'post'], '/pr16/form', [Pr16Controller::class, 'pr1621']);
 
+Route::get('/cookie/time', [Pr188Controller::class, 'pr1811']);
+Route::match(['get', 'post'], '/cookie/2', [Pr188Controller::class, 'pr1821']);
+Route::get('/cookie/3', [Pr188Controller::class, 'pr1831']);
